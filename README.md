@@ -1,1 +1,1904 @@
-# Putiputi
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Lola ♡</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(113, 174, 255, .18), transparent 25%),
+        radial-gradient(circle at 80% 30%, rgba(182, 120, 255, .18), transparent 25%),
+        radial-gradient(circle at 50% 80%, rgba(71, 130, 255, .15), transparent 30%),
+        #050719;
+    color: #f7f5ff;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle, white 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(255,255,255,.7) 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(160,210,255,.8) 1px, transparent 1.5px);
+    background-size: 140px 140px, 210px 210px, 290px 290px;
+    background-position: 0 0, 40px 80px, 100px 30px;
+    opacity: .65;
+    z-index: -1;
+}
+
+section {
+    min-height: 100vh;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container {
+    width: min(100%, 950px);
+    margin: auto;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+h1 {
+    font-size: clamp(3rem, 10vw, 7rem);
+    line-height: .95;
+    text-shadow: 0 0 25px rgba(160,200,255,.8);
+}
+
+h2 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    margin-bottom: 20px;
+    color: #dcecff;
+    text-shadow: 0 0 18px rgba(150,190,255,.5);
+}
+
+h3 {
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+}
+
+p {
+    line-height: 1.8;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    opacity: .9;
+    margin: 20px auto;
+    max-width: 700px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.glow-button {
+    margin-top: 30px;
+    padding: 15px 28px;
+    border-radius: 999px;
+    background: rgba(190,220,255,.14);
+    border: 1px solid rgba(210,230,255,.5);
+    color: white;
+    font-size: 1rem;
+    box-shadow: 0 0 25px rgba(130,180,255,.2);
+    transition: .3s;
+}
+
+.glow-button:hover {
+    transform: translateY(-3px) scale(1.03);
+    background: rgba(190,220,255,.24);
+    box-shadow: 0 0 35px rgba(130,180,255,.45);
+}
+
+/* MUSIC */
+
+.music-button {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 100;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(12,17,50,.8);
+    border: 1px solid rgba(200,220,255,.5);
+    color: white;
+    font-size: 1.25rem;
+    box-shadow: 0 0 20px rgba(130,180,255,.35);
+}
+
+/* STARS */
+
+.star {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite alternate;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes twinkle {
+    from { opacity: .2; transform: scale(.7); }
+    to { opacity: 1; transform: scale(1.5); }
+}
+
+/* SHOOTING STARS */
+
+.shooting-star {
+    position: fixed;
+    width: 110px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, white);
+    transform: rotate(-35deg);
+    animation: shooting 6s linear infinite;
+    opacity: 0;
+    z-index: -1;
+}
+
+.shooting-star:nth-child(1) {
+    top: 15%;
+    left: -150px;
+    animation-delay: 1s;
+}
+
+.shooting-star:nth-child(2) {
+    top: 40%;
+    left: -150px;
+    animation-delay: 4s;
+}
+
+.shooting-star:nth-child(3) {
+    top: 65%;
+    left: -150px;
+    animation-delay: 8s;
+}
+
+@keyframes shooting {
+    0% {
+        left: -150px;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    35% {
+        left: 110%;
+        opacity: 0;
+    }
+    100% {
+        left: 110%;
+        opacity: 0;
+    }
+}
+
+/* FLOATING PEONIES */
+
+.peony {
+    position: fixed;
+    font-size: 30px;
+    opacity: .35;
+    pointer-events: none;
+    z-index: -1;
+    animation: floatPeony 12s ease-in-out infinite;
+}
+
+.peony:nth-of-type(1) {
+    left: 7%;
+    top: 30%;
+}
+
+.peony:nth-of-type(2) {
+    right: 7%;
+    top: 55%;
+    animation-delay: 3s;
+}
+
+.peony:nth-of-type(3) {
+    left: 15%;
+    bottom: 12%;
+    animation-delay: 5s;
+}
+
+.peony:nth-of-type(4) {
+    right: 15%;
+    bottom: 20%;
+    animation-delay: 7s;
+}
+
+@keyframes floatPeony {
+    0%,100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-35px) rotate(12deg);
+    }
+}
+
+/* STINGRAYS */
+
+.stingray {
+    position: fixed;
+    font-size: 42px;
+    opacity: .32;
+    pointer-events: none;
+    z-index: -1;
+    animation: swim 18s linear infinite;
+}
+
+.ray1 {
+    top: 18%;
+    left: -80px;
+}
+
+.ray2 {
+    top: 52%;
+    left: -100px;
+    animation-delay: 6s;
+    font-size: 34px;
+}
+
+.ray3 {
+    top: 78%;
+    left: -100px;
+    animation-delay: 11s;
+    font-size: 48px;
+}
+
+.ray4 {
+    top: 35%;
+    left: -100px;
+    animation-delay: 14s;
+    font-size: 30px;
+}
+
+@keyframes swim {
+    0% {
+        transform: translateX(-100px) translateY(0) rotate(-5deg);
+    }
+    25% {
+        transform: translateX(30vw) translateY(-25px) rotate(5deg);
+    }
+    50% {
+        transform: translateX(60vw) translateY(20px) rotate(-5deg);
+    }
+    75% {
+        transform: translateX(90vw) translateY(-20px) rotate(5deg);
+    }
+    100% {
+        transform: translateX(120vw) translateY(0) rotate(-5deg);
+    }
+}
+
+/* DECORATIONS */
+
+.decorations {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    margin: 35px 0;
+    font-size: 4rem;
+    filter: drop-shadow(0 0 15px rgba(255,255,255,.2));
+}
+
+/* CARDS */
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.card {
+    background: rgba(15,22,55,.68);
+    border: 1px solid rgba(190,215,255,.18);
+    border-radius: 22px;
+    padding: 24px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,.25);
+}
+
+.card:hover {
+    border-color: rgba(190,215,255,.4);
+}
+
+.reason {
+    cursor: pointer;
+    transition: .35s;
+}
+
+.reason:hover {
+    transform: translateY(-5px);
+}
+
+.reason .secret {
+    display: none;
+    margin-top: 15px;
+    color: #d8eaff;
+    font-style: italic;
+}
+
+.reason.open .secret {
+    display: block;
+}
+
+/* FAVOURITES */
+
+.favourite {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.favourite span {
+    display: block;
+    font-size: 1rem;
+    margin-top: 8px;
+    opacity: .85;
+}
+
+/* OPEN WHEN */
+
+.open-card {
+    text-align: center;
+    cursor: pointer;
+}
+
+.open-message {
+    display: none;
+    margin-top: 18px;
+    color: #dcecff;
+}
+
+.open-card.open .open-message {
+    display: block;
+}
+
+/* CONSTELLATION */
+
+.constellation {
+    position: relative;
+    width: min(90vw, 700px);
+    height: 450px;
+    margin: 30px auto;
+    border-radius: 30px;
+    background:
+        radial-gradient(circle at center, rgba(70,100,180,.13), transparent 65%),
+        rgba(3,7,25,.45);
+    border: 1px solid rgba(180,210,255,.15);
+    overflow: hidden;
+}
+
+.constellation-star {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 15px 5px rgba(180,220,255,.7);
+    cursor: pointer;
+    transition: .25s;
+}
+
+.constellation-star:hover {
+    transform: scale(1.6);
+}
+
+.star-line {
+    position: absolute;
+    height: 1px;
+    background: rgba(200,225,255,.35);
+    transform-origin: left center;
+}
+
+.constellation-message {
+    text-align: center;
+    min-height: 60px;
+    max-width: 650px;
+    margin: 20px auto;
+    color: #dcecff;
+    font-style: italic;
+}
+
+/* TREASURE HUNT */
+
+.treasure-box {
+    text-align: center;
+    padding: 35px;
+    border-radius: 28px;
+    background: rgba(17,24,58,.7);
+    border: 1px solid rgba(190,215,255,.2);
+}
+
+.clue {
+    display: none;
+}
+
+.clue.active {
+    display: block;
+}
+
+/* WORD FIND */
+
+.word-find {
+    max-width: 500px;
+    margin: 30px auto;
+}
+
+.word-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.word {
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: rgba(170,200,255,.1);
+    border: 1px solid rgba(170,200,255,.2);
+}
+
+.word.found {
+    text-decoration: line-through;
+    opacity: .5;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 4px;
+    user-select: none;
+    touch-action: none;
+}
+
+.cell {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(180,210,255,.08);
+    border: 1px solid rgba(180,210,255,.12);
+    border-radius: 5px;
+    font-size: clamp(.7rem, 2.5vw, 1rem);
+    cursor: pointer;
+}
+
+.cell.selected {
+    background: rgba(130,180,255,.4);
+}
+
+.cell.correct {
+    background: rgba(130,220,180,.35);
+}
+
+/* COLOURING */
+
+.colour-wrap {
+    width: min(100%, 800px);
+    background: rgba(15,22,55,.7);
+    border: 1px solid rgba(190,215,255,.2);
+    padding: 20px;
+    border-radius: 28px;
+}
+
+.colour-canvas {
+    width: 100%;
+    display: block;
+    background: #fff;
+    border-radius: 18px;
+    cursor: crosshair;
+    touch-action: none;
+}
+
+.palette {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0 5px;
+}
+
+.colour {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 3px solid white;
+    cursor: pointer;
+}
+
+.colour.active {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px white;
+}
+
+/* LOVE LETTER */
+
+.letter {
+    max-width: 750px;
+    background: rgba(16,22,55,.72);
+    border: 1px solid rgba(200,220,255,.2);
+    padding: clamp(25px, 6vw, 55px);
+    border-radius: 30px;
+    box-shadow: 0 25px 70px rgba(0,0,0,.3);
+}
+
+.letter p {
+    margin-bottom: 18px;
+}
+
+/* FUTURE */
+
+.future-list {
+    display: grid;
+    gap: 12px;
+    width: 100%;
+}
+
+.future-item {
+    padding: 18px 20px;
+    background: rgba(20,28,65,.65);
+    border-radius: 16px;
+    border-left: 3px solid rgba(190,220,255,.5);
+}
+
+/* FINAL */
+
+.final {
+    text-align: center;
+    background:
+        radial-gradient(circle at center, rgba(90,130,230,.2), transparent 55%);
+}
+
+.final-message {
+    max-width: 750px;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    line-height: 2;
+}
+
+.signature {
+    margin-top: 30px;
+    font-size: 1.4rem;
+}
+
+/* HIDDEN */
+
+.hidden {
+    display: none;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    section {
+        padding: 65px 15px;
+    }
+
+    .decorations {
+        font-size: 3rem;
+        gap: 25px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .constellation {
+        height: 350px;
+    }
+
+    .letter {
+        padding: 25px 20px;
+    }
+
+    .stingray {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="backgroundMusic" loop preload="auto">
+    <source src="calm-guitar.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-button" id="musicButton" onclick="toggleMusic()">🎵</button>
+
+<!-- BACKGROUND DECORATIONS -->
+
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+
+<div class="peony">🌸</div>
+<div class="peony">🌸</div>
+<div class="peony">🌸</div>
+<div class="peony">🌸</div>
+
+<div class="stingray ray1">🪽</div>
+<div class="stingray ray2">🪽</div>
+<div class="stingray ray3">🪽</div>
+<div class="stingray ray4">🪽</div>
+
+<!-- HERO -->
+
+<section id="birthday">
+
+    <div class="container">
+
+        <div class="decorations">
+            🎹
+            🎸
+            🌸
+        </div>
+
+        <h1>
+            A little universe<br>
+            made for Lola ♡
+        </h1>
+
+        <p class="subtitle">
+            Twenty-seven years of you.
+        </p>
+
+        <p class="subtitle">
+            So I made you a tiny universe.
+            Every little corner is here because it reminds me of you.
+        </p>
+
+        <div style="text-align:center;">
+            <button class="glow-button" onclick="enterUniverse()">
+                Enter my little universe ↓
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- INTRO -->
+
+<section>
+
+    <div class="container">
+
+        <h2>Happy 27th Birthday, Lola 🩵</h2>
+
+        <p class="subtitle">
+            Today isn't just about another year passing.
+            It's about celebrating the person who makes my world softer
+            simply by existing in it.
+        </p>
+
+        <p class="subtitle">
+            I wish I could be beside you today.
+            So instead, I built you somewhere you can come back to
+            whenever you need a reminder of how loved you are.
+        </p>
+
+        <div class="decorations">
+            🩵 🦦 ⭐ 🌊 🌸
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FAVOURITES -->
+
+<section>
+
+    <div class="container">
+
+        <h2>Your little universe</h2>
+
+        <p class="subtitle">
+            A few of the things that make me think of you.
+        </p>
+
+        <div class="card-grid">
+
+            <div class="card favourite">🩵<span>Baby blue</span></div>
+            <div class="card favourite">🦦<span>Otters</span></div>
+            <div class="card favourite">☕<span>Black coffee</span></div>
+            <div class="card favourite">🍣<span>Sushi</span></div>
+            <div class="card favourite">🌊<span>The ocean</span></div>
+            <div class="card favourite">⭐<span>Stars</span></div>
+            <div class="card favourite">🤎<span>Hazel eyes</span></div>
+            <div class="card favourite">🎂<span>Twenty-seven</span></div>
+            <div class="card favourite">🌸<span>Peonies</span></div>
+            <div class="card favourite">🎹<span>Music</span></div>
+            <div class="card favourite">🎸<span>Guitar</span></div>
+            <div class="card favourite">🌅<span>Sunrises</span></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- 27 REASONS -->
+
+<section>
+
+    <div class="container">
+
+        <h2>27 reasons I love you</h2>
+
+        <p class="subtitle">
+            Tap each one. There is a little message hidden underneath every reason.
+        </p>
+
+        <div class="card-grid">
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>1. Your hazel eyes.</h3>
+                <p class="secret">There is something about looking into your eyes that makes everything else disappear for a moment.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>2. Your voice.</h3>
+                <p class="secret">Even when you don't realise it, hearing you can turn an ordinary moment into one I want to remember.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>3. The way you make me feel at home.</h3>
+                <p class="secret">Home stopped being somewhere I needed to go when I realised how safe my heart feels with you.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>4. Your little laugh.</h3>
+                <p class="secret">I would happily do ridiculous things just to hear that laugh one more time.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>5. Your beautiful heart.</h3>
+                <p class="secret">You care more deeply than you sometimes realise, and that tenderness is one of the things I treasure most.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>6. Your softness.</h3>
+                <p class="secret">The softness you carry isn't weakness. It is one of the most beautiful things about you.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>7. Your strength.</h3>
+                <p class="secret">I admire every quiet moment where you kept going even when nobody else could see how hard it was.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>8. Your love for otters.</h3>
+                <p class="secret">Somehow the fact that you love these adorable little creatures makes me love your heart even more.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>9. Your baby blue world.</h3>
+                <p class="secret">Whenever I see that colour, a tiny part of my brain immediately thinks of you.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>10. Your black coffee.</h3>
+                <p class="secret">I don't even have to like the coffee. I just love imagining you holding your little cup of it.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>11. The way you make me smile.</h3>
+                <p class="secret">Sometimes I'll be completely fine and then I'll remember something about you and suddenly I'm smiling at my phone.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>12. The way you listen.</h3>
+                <p class="secret">Being heard by someone you love is a kind of comfort that words don't really know how to explain.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>13. Your little habits.</h3>
+                <p class="secret">The tiny things you probably don't think anyone notices are often the things I secretly adore most.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>14. Your beautiful soul.</h3>
+                <p class="secret">I don't just love the person I can see. I love the person underneath everything too.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>15. The way you calm me.</h3>
+                <p class="secret">There are moments when the world feels loud, and somehow your presence makes it quieter.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>16. The way you make ordinary moments special.</h3>
+                <p class="secret">With you, even doing absolutely nothing can become something I want to keep forever.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>17. Your kindness.</h3>
+                <p class="secret">Kindness leaves fingerprints on the world, and yours are everywhere.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>18. Your patience.</h3>
+                <p class="secret">You remind me that love doesn't always need grand gestures. Sometimes it is simply staying and understanding.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>19. Your silly side.</h3>
+                <p class="secret">I never want you to feel like you have to hide the weird, goofy and ridiculous parts of yourself from me.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>20. Your beautiful mind.</h3>
+                <p class="secret">I love learning the way you think, the things you notice and the little worlds that exist inside your head.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>21. The way you make distance feel smaller.</h3>
+                <p class="secret">Miles can separate two people physically, but you've never felt far away from my heart.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>22. The way you became my home.</h3>
+                <p class="secret">I never planned on finding home in another person. Then you came along and completely changed that.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>23. The way you make me feel understood.</h3>
+                <p class="secret">Being understood without having to explain every little piece of yourself is a rare kind of magic.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>24. Your dreams.</h3>
+                <p class="secret">I want to know every dream you have, even the tiny ones, because I want to know the future you're imagining.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>25. Your courage.</h3>
+                <p class="secret">Courage isn't always loud. Sometimes it is simply waking up and choosing to keep moving forward.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>26. The person you are becoming.</h3>
+                <p class="secret">I don't only love who you are today. I love getting to watch all the beautiful versions of you that are still waiting to unfold.</p>
+            </div>
+
+            <div class="card reason" onclick="this.classList.toggle('open')">
+                <h3>27. Simply because you're Lola.</h3>
+                <p class="secret">After all the lists, explanations and words, it really comes down to this: I love you because you are you. And there is nobody else in the universe I'd rather find.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONSTELLATION -->
+
+<section>
+
+    <div class="container">
+
+        <h2>Our constellation ⭐</h2>
+
+        <p class="subtitle">
+            Tap the stars and let them tell you something.
+        </p>
+
+        <div class="constellation" id="constellation">
+
+            <div class="constellation-star" style="left:15%;top:35%;" onclick="constellationMessage(0)"></div>
+            <div class="constellation-star" style="left:29%;top:20%;" onclick="constellationMessage(1)"></div>
+            <div class="constellation-star" style="left:43%;top:38%;" onclick="constellationMessage(2)"></div>
+            <div class="constellation-star" style="left:57%;top:23%;" onclick="constellationMessage(3)"></div>
+            <div class="constellation-star" style="left:73%;top:40%;" onclick="constellationMessage(4)"></div>
+            <div class="constellation-star" style="left:61%;top:65%;" onclick="constellationMessage(0)"></div>
+            <div class="constellation-star" style="left:35%;top:68%;" onclick="constellationMessage(1)"></div>
+
+            <div class="star-line" style="left:17%;top:37%;width:15%;transform:rotate(-28deg);"></div>
+            <div class="star-line" style="left:31%;top:23%;width:17%;transform:rotate(30deg);"></div>
+            <div class="star-line" style="left:45%;top:39%;width:16%;transform:rotate(-25deg);"></div>
+            <div class="star-line" style="left:59%;top:25%;width:17%;transform:rotate(28deg);"></div>
+            <div class="star-line" style="left:72%;top:42%;width:27%;transform:rotate(110deg);"></div>
+            <div class="star-line" style="left:61%;top:66%;width:27%;transform:rotate(180deg);"></div>
+
+        </div>
+
+        <p class="constellation-message" id="constellationMessage">
+            The stars are waiting for you. ✨
+        </p>
+
+    </div>
+
+</section>
+
+<!-- OPEN WHEN -->
+
+<section>
+
+    <div class="container">
+
+        <h2>Open when... 💌</h2>
+
+        <p class="subtitle">
+            Little pieces of me for the moments when you need them.
+        </p>
+
+        <div class="card-grid">
+
+            <div class="card open-card" onclick="this.classList.toggle('open')">
+                <h3>💭 Open when you miss me</h3>
+                <p class="open-message">
+                    If you miss me, look at the sky. Somewhere beneath that same sky is a girl who is missing you too. Distance doesn't change where my heart belongs. 🩵
+                </p>
+            </div>
+
+            <div class="card open-card" onclick="this.classList.toggle('open')">
+                <h3>🌧️ Open when you're sad</h3>
+                <p class="open-message">
+                    If you're sad, you don't have to pretend to be okay. Come exactly as you are. You can be messy, tired, quiet or broken. I'll still love you through every version of you.
+                </p>
+            </div>
+
+            <div class="card open-card" onclick="this.classList.toggle('open')">
+                <h3>🌙 Open when you can't sleep</h3>
+                <p class="open-message">
+                    If you can't sleep, imagine me beside you. No distance. No screens. Just quiet, warm and safe. Close your eyes and imagine my hand in yours.
+                </p>
+            </div>
+
+            <div class="card open-card" onclick="this.classList.toggle('open')">
+                <h3>🩵 Open when you need to feel loved</h3>
+                <p class="open-message">
+                    If you need to feel loved, remember this: you are loved beyond the kilometres between us, beyond the days we spend apart and beyond anything words could ever properly explain.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FUTURE -->
+
+<section>
+
+    <div class="container">
+
+        <h2>Things I want with you 🌅</h2>
+
+        <p class="subtitle">
+            Because twenty-seven isn't the end of a story. It's another page.
+        </p>
+
+        <div class="future-list">
+
+            <div class="future-item">🌸 The day I finally get to hold you.</div>
+            <div class="future-item">🌊 Seeing the ocean together.</div>
+            <div class="future-item">🌅 A sunrise where neither of us has to say goodbye afterwards.</div>
+            <div class="future-item">🗺️ Exploring somewhere neither of us has ever been.</div>
+            <div class="future-item">🏡 A little place that feels like ours.</div>
+            <div class="future-item">⭐ Looking at the stars beside you instead of through a screen.</div>
+            <div class="future-item">🍣 Sharing a ridiculous amount of sushi even though I don't like sushi.</div>
+            <div class="future-item">🎸 Finding somewhere beautiful to sit and listen to music together.</div>
+            <div class="future-item">😂 Watching you laugh while we make memories that don't have to fit inside a screen.</div>
+            <div class="future-item">🤍 Growing older together.</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TREASURE HUNT -->
+
+<section>
+
+    <div class="container">
+
+        <h2>Our little treasure hunt 🗝️</h2>
+
+        <p class="subtitle">
+            Follow the clues. Don't skip ahead. ♡
+        </p>
+
+        <div class="treasure-box">
+
+            <div class="clue active" id="clue1">
+                <h3>Clue One ⭐</h3>
+                <p>
+                    I shine above you, but I'm not the sun.
+                    Find me where our little universe keeps its secrets.
+                </p>
+                <p style="margin-top:10px;">Hint: ⭐</p>
+                <button class="glow-button" onclick="nextClue(2)">I found it →</button>
+            </div>
+
+            <div class="clue" id="clue2">
+                <h3>Clue Two 💌</h3>
+                <p>
+                    You've found the stars.
+                    Now find the place where twenty-seven little reasons
+                    are waiting to tell you why you're loved.
+                </p>
+                <button class="glow-button" onclick="nextClue(3)">Next clue →</button>
+            </div>
+
+            <div class="clue" id="clue3">
+                <h3>Clue Three 💭</h3>
+                <p>
+                    Twenty-seven reasons, but one person behind them all.
+                    Now find the place where you can open little messages
+                    whenever you need them.
+                </p>
+                <button class="glow-button" onclick="nextClue(4)">Next clue →</button>
+            </div>
+
+            <div class="clue" id="clue4">
+                <h3>Clue Four 🌅</h3>
+                <p>
+                    Now find the place where tomorrow lives.
+                    Look for the little list of things I want with you.
+                </p>
+                <button class="glow-button" onclick="nextClue(5)">Next clue →</button>
+            </div>
+
+            <div class="clue" id="clue5">
+                <h3>Clue Five 🎨</h3>
+                <p>
+                    Almost there, my love.
+                    Find the sunrise. It is waiting for you to give it some colour.
+                </p>
+                <button class="glow-button" onclick="nextClue(6)">I found the sunrise →</button>
+            </div>
+
+            <div class="clue" id="clue6">
+                <h3>Your treasure 🩵</h3>
+                <p>
+                    Your treasure was never something I could put inside a box.
+                    It was you.
+                </p>
+                <p style="margin-top:18px;">
+                    Happy 27th birthday, Lola.
+                    You are my favourite treasure in every universe.
+                    ⭐ 🩵 🌌
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- WORD FIND -->
+
+<section>
+
+    <div class="container">
+
+        <h2>Find our words 🔎</h2>
+
+        <p class="subtitle">
+            Find the hidden words in the grid.
+            Tap letters in order, then tap the last letter again to submit.
+        </p>
+
+        <div class="word-find">
+
+            <div class="word-list" id="wordList"></div>
+
+            <div class="grid" id="wordGrid"></div>
+
+            <p id="wordMessage" class="subtitle" style="min-height:35px;">
+                Find your first word. 🩵
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- COLOURING -->
+
+<section>
+
+    <div class="container">
+
+        <h2>Colour our sunrise 🌅</h2>
+
+        <p class="subtitle">
+            A little colouring page for you.
+            Make the sunrise whatever colours you want.
+        </p>
+
+        <div class="colour-wrap">
+
+            <canvas
+                id="colourCanvas"
+                class="colour-canvas"
+                width="800"
+                height="500">
+            </canvas>
+
+            <div class="palette">
+
+                <button class="colour active" style="background:#ffb6c1;" data-colour="#ffb6c1"></button>
+                <button class="colour" style="background:#ffd166;" data-colour="#ffd166"></button>
+                <button class="colour" style="background:#ff8c69;" data-colour="#ff8c69"></button>
+                <button class="colour" style="background:#87ceeb;" data-colour="#87ceeb"></button>
+                <button class="colour" style="background:#8ecae6;" data-colour="#8ecae6"></button>
+                <button class="colour" style="background:#b19cd9;" data-colour="#b19cd9"></button>
+                <button class="colour" style="background:#90be6d;" data-colour="#90be6d"></button>
+                <button class="colour" style="background:#ffffff;" data-colour="#ffffff"></button>
+                <button class="colour" style="background:#111827;" data-colour="#111827"></button>
+
+            </div>
+
+            <div style="text-align:center;">
+                <button class="glow-button" onclick="clearCanvas()">
+                    Start again
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- LOVE LETTER -->
+
+<section>
+
+    <div class="container">
+
+        <h2>A letter for you 💌</h2>
+
+        <div class="letter">
+
+            <p>My love,</p>
+
+            <p>
+                I wish I could be there beside you today.
+                I wish I could watch your face when you wake up,
+                give you something wrapped in far too much ribbon,
+                and steal the first birthday hug before anyone else could.
+            </p>
+
+            <p>
+                But even though there are kilometres between us,
+                there is something distance has never managed to touch.
+                The way I love you.
+            </p>
+
+            <p>
+                You became home to me in a way I never expected.
+                Not because of a place. Not because of a house.
+                But because somehow, when I'm talking to you,
+                the world becomes a little quieter.
+            </p>
+
+            <p>
+                So on your twenty-seventh birthday, I hope you remember something.
+                You are so deeply loved.
+                Not because you're perfect.
+                Not because you always have everything figured out.
+                But because you're you.
+            </p>
+
+            <p>
+                I hope you know how beautiful it is that you are still here,
+                still dreaming, still becoming, still finding little reasons to smile.
+            </p>
+
+            <p>
+                I hope this next year gives you moments that make your heart feel light.
+                Places you've never seen. Things you've always wanted to try.
+                Quiet mornings. Beautiful sunsets.
+                And eventually, an ocean that we can stand beside together.
+            </p>
+
+            <p>
+                And if I had to find you again through every lifetime,
+                every universe, every galaxy, every version of this world...
+                I'd still look for you.
+            </p>
+
+            <p>
+                I'd recognise your heart.
+                I'd recognise your laugh.
+                I'd recognise the way you make home feel less like a place
+                and more like a person.
+            </p>
+
+            <p>
+                Happy birthday, my love.
+            </p>
+
+            <p>
+                I'll find you beneath every sky.
+            </p>
+
+            <p class="signature">
+                Bree / Putiputi ♡
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FINAL -->
+
+<section class="final">
+
+    <div class="container">
+
+        <div class="decorations">
+            ⭐ 🩵 🌸
+        </div>
+
+        <h2>One last thing...</h2>
+
+        <p class="final-message">
+
+            If I could give you anything for your birthday,
+            it would be the ability to see yourself through my eyes.
+
+            Maybe then you'd finally understand why I love you so much.
+
+            You are my favourite person,
+            my soft place to land,
+            my little piece of home.
+
+            Happy 27th birthday, my love.
+
+            I love you across every kilometre,
+            every timezone,
+            every ocean,
+            every sky,
+            and every universe.
+
+            🩵 🌌 🦦 ⭐ 🌸
+
+        </p>
+
+        <p class="signature">
+            Forever yours,<br>
+            Bree ♡
+        </p>
+
+        <div class="decorations">
+            🎹 🎸 🌊
+        </div>
+
+    </div>
+
+</section>
+
+<footer style="
+    text-align:center;
+    padding:40px 20px;
+    opacity:.7;
+    background:rgba(0,0,0,.25);
+">
+    Made with an unreasonable amount of love for Lola ♡
+    🌌 🩵 🦦 🌊 ⭐ 🌸 🎹 🎸
+</footer>
+
+<script>
+
+/* =========================
+   MUSIC
+========================= */
+
+const music = document.getElementById("backgroundMusic");
+const musicButton = document.getElementById("musicButton");
+
+function enterUniverse() {
+    document.getElementById("birthday").scrollIntoView({
+        behavior: "smooth"
+    });
+
+    music.volume = 0.35;
+
+    music.play()
+        .then(() => {
+            musicButton.textContent = "🔊";
+        })
+        .catch(() => {
+            musicButton.textContent = "🎵";
+        });
+}
+
+function toggleMusic() {
+
+    if (music.paused) {
+        music.play();
+        musicButton.textContent = "🔊";
+    } else {
+        music.pause();
+        musicButton.textContent = "🔇";
+    }
+
+}
+
+
+/* =========================
+   RANDOM STARS
+========================= */
+
+for (let i = 0; i < 100; i++) {
+
+    const star = document.createElement("div");
+
+    star.className = "star";
+
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.top = Math.random() * 100 + "vh";
+
+    star.style.animationDelay =
+        Math.random() * 3 + "s";
+
+    star.style.animationDuration =
+        1.5 + Math.random() * 3 + "s";
+
+    document.body.appendChild(star);
+}
+
+
+/* =========================
+   CONSTELLATION
+========================= */
+
+const constellationMessages = [
+
+    "You are the star I would choose in every universe. 🩵",
+
+    "Somewhere between all these stars, I found you.",
+
+    "Distance is only geography. My heart has never been far from yours.",
+
+    "If the universe had a favourite love story, I hope it would be ours.",
+
+    "Look up at the night sky. Somewhere beneath it, I'm loving you too."
+
+];
+
+function constellationMessage(index) {
+
+    document.getElementById("constellationMessage").textContent =
+        constellationMessages[index];
+
+}
+
+
+/* =========================
+   TREASURE HUNT
+========================= */
+
+function nextClue(number) {
+
+    document.querySelectorAll(".clue").forEach(clue => {
+        clue.classList.remove("active");
+    });
+
+    const next = document.getElementById("clue" + number);
+
+    if (next) {
+        next.classList.add("active");
+    }
+
+}
+
+
+/* =========================
+   WORD FIND
+========================= */
+
+const words = [
+    "LOLA",
+    "LOVE",
+    "STARS",
+    "OCEAN",
+    "OTTER",
+    "HOME",
+    "HEART",
+    "FOREVER",
+    "SUNRISE",
+    "BABYBLUE"
+];
+
+const gridLetters = [
+
+    ["X","L","O","L","A","Q","W","E","R","T"],
+
+    ["F","O","R","E","V","E","R","X","Y","Z"],
+
+    ["Q","S","T","A","R","S","A","B","C","D"],
+
+    ["X","O","X","O","C","E","A","N","X","X"],
+
+    ["X","X","O","T","T","E","R","X","X","X"],
+
+    ["H","E","A","R","T","X","X","X","X","X"],
+
+    ["B","A","B","Y","B","L","U","E","X","X"],
+
+    ["X","X","S","U","N","R","I","S","E","Q"],
+
+    ["L","O","V","E","H","O","M","E","X","X"],
+
+    ["Q","W","E","R","T","Y","U","I","O","P"]
+
+];
+
+const grid = document.getElementById("wordGrid");
+const wordList = document.getElementById("wordList");
+const wordMessage = document.getElementById("wordMessage");
+
+let selectedCells = [];
+let foundWords = [];
+
+words.forEach(word => {
+
+    const el = document.createElement("div");
+
+    el.className = "word";
+    el.id = "word-" + word;
+
+    el.textContent = word;
+
+    wordList.appendChild(el);
+
+});
+
+for (let row = 0; row < 10; row++) {
+
+    for (let col = 0; col < 10; col++) {
+
+        const cell = document.createElement("div");
+
+        cell.className = "cell";
+
+        cell.textContent = gridLetters[row][col];
+
+        cell.dataset.row = row;
+        cell.dataset.col = col;
+
+        cell.addEventListener("click", () => selectCell(cell));
+
+        grid.appendChild(cell);
+    }
+
+}
+
+function selectCell(cell) {
+
+    if (cell.classList.contains("correct")) return;
+
+    if (selectedCells.includes(cell)) {
+
+        if (
+            selectedCells.length >= 2 &&
+            selectedCells[selectedCells.length - 1] === cell
+        ) {
+            checkWord();
+        }
+
+        return;
+    }
+
+    selectedCells.push(cell);
+    cell.classList.add("selected");
+
+    const currentWord = selectedCells
+        .map(c => c.textContent)
+        .join("");
+
+    const possible = words.some(word =>
+        word.startsWith(currentWord) &&
+        !foundWords.includes(word)
+    );
+
+    if (!possible) {
+
+        selectedCells.forEach(c =>
+            c.classList.remove("selected")
+        );
+
+        selectedCells = [];
+
+        wordMessage.textContent =
+            "That wasn't one of our words. Try again. 🩵";
+    }
+
+}
+
+function checkWord() {
+
+    const currentWord = selectedCells
+        .map(c => c.textContent)
+        .join("");
+
+    if (words.includes(currentWord)) {
+
+        if (!foundWords.includes(currentWord)) {
+
+            foundWords.push(currentWord);
+
+            selectedCells.forEach(c => {
+                c.classList.remove("selected");
+                c.classList.add("correct");
+            });
+
+            document
+                .getElementById("word-" + currentWord)
+                .classList.add("found");
+
+            wordMessage.textContent =
+                "You found " + currentWord + "! ⭐";
+
+            if (foundWords.length === words.length) {
+
+                wordMessage.textContent =
+                    "You found every word! 🩵🌊⭐ I love you, Lola.";
+
+            }
+
+        }
+
+    } else {
+
+        selectedCells.forEach(c =>
+            c.classList.remove("selected")
+        );
+
+        wordMessage.textContent =
+            "Keep looking, my love. 🩵";
+
+    }
+
+    selectedCells = [];
+
+}
+
+
+/* =========================
+   COLOURING CANVAS
+========================= */
+
+const canvas = document.getElementById("colourCanvas");
+const ctx = canvas.getContext("2d");
+
+let drawing = false;
+let currentColour = "#ffb6c1";
+
+function drawScene() {
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#f7fbff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.lineWidth = 5;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.strokeStyle = "#20263a";
+
+    /* SUN */
+
+    ctx.beginPath();
+    ctx.arc(400, 210, 70, 0, Math.PI * 2);
+    ctx.stroke();
+
+    /* SUN RAYS */
+
+    for (let i = 0; i < 12; i++) {
+
+        const angle = i * Math.PI / 6;
+
+        const x1 = 400 + Math.cos(angle) * 90;
+        const y1 = 210 + Math.sin(angle) * 90;
+
+        const x2 = 400 + Math.cos(angle) * 120;
+        const y2 = 210 + Math.sin(angle) * 120;
+
+        ctx.beginPath();
+        ctx.moveTo(x1,y1);
+        ctx.lineTo(x2,y2);
+        ctx.stroke();
+
+    }
+
+    /* HORIZON */
+
+    ctx.beginPath();
+    ctx.moveTo(0,300);
+    ctx.lineTo(800,300);
+    ctx.stroke();
+
+    /* WAVES */
+
+    for (let y = 330; y < 470; y += 35) {
+
+        ctx.beginPath();
+
+        for (let x = 0; x <= 800; x += 40) {
+
+            ctx.quadraticCurveTo(
+                x + 10,
+                y - 8,
+                x + 20,
+                y
+            );
+
+        }
+
+        ctx.stroke();
+    }
+
+    /* BEACH */
+
+    ctx.beginPath();
+    ctx.moveTo(0,300);
+    ctx.lineTo(180,300);
+    ctx.quadraticCurveTo(300,360,420,350);
+    ctx.quadraticCurveTo(600,330,800,300);
+    ctx.lineTo(800,500);
+    ctx.lineTo(0,500);
+    ctx.closePath();
+    ctx.stroke();
+
+    /* TWO PEOPLE */
+
+    // Bree
+    ctx.beginPath();
+    ctx.arc(315,300,22,0,Math.PI*2);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(315,322);
+    ctx.lineTo(315,395);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(315,350);
+    ctx.lineTo(280,375);
+    ctx.moveTo(315,350);
+    ctx.lineTo(350,375);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(315,395);
+    ctx.lineTo(285,450);
+    ctx.moveTo(315,395);
+    ctx.lineTo(345,450);
+    ctx.stroke();
+
+    // Lola
+    ctx.beginPath();
+    ctx.arc(480,300,18,0,Math.PI*2);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(480,318);
+    ctx.lineTo(480,385);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(480,345);
+    ctx.lineTo(450,370);
+    ctx.moveTo(480,345);
+    ctx.lineTo(510,370);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(480,385);
+    ctx.lineTo(455,440);
+    ctx.moveTo(480,385);
+    ctx.lineTo(505,440);
+    ctx.stroke();
+
+    /* HEART */
+
+    ctx.beginPath();
+    ctx.moveTo(400,390);
+    ctx.bezierCurveTo(370,360,330,395,400,445);
+    ctx.bezierCurveTo(470,395,430,360,400,390);
+    ctx.stroke();
+
+    /* PEONIES */
+
+    for (const x of [90,690]) {
+
+        ctx.beginPath();
+        ctx.arc(x,420,25,0,Math.PI*2);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(x-20,420,15,0,Math.PI*2);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(x+20,420,15,0,Math.PI*2);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(x,445);
+        ctx.lineTo(x,490);
+        ctx.stroke();
+
+    }
+
+}
+
+drawScene();
+
+document.querySelectorAll(".colour").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        currentColour = button.dataset.colour;
+
+        document.querySelectorAll(".colour")
+            .forEach(b => b.classList.remove("active"));
+
+        button.classList.add("active");
+
+    });
+
+});
+
+function getCanvasPosition(event) {
+
+    const rect = canvas.getBoundingClientRect();
+
+    const clientX =
+        event.touches
+        ? event.touches[0].clientX
+        : event.clientX;
+
+    const clientY =
+        event.touches
+        ? event.touches[0].clientY
+        : event.clientY;
+
+    return {
+        x: (clientX - rect.left) *
+            (canvas.width / rect.width),
+
+        y: (clientY - rect.top) *
+            (canvas.height / rect.height)
+    };
+
+}
+
+function draw(event) {
+
+    if (!drawing) return;
+
+    event.preventDefault();
+
+    const pos = getCanvasPosition(event);
+
+    ctx.fillStyle = currentColour;
+
+    ctx.beginPath();
+    ctx.arc(pos.x, pos.y, 12, 0, Math.PI * 2);
+    ctx.fill();
+
+}
+
+canvas.addEventListener("pointerdown", event => {
+    drawing = true;
+    draw(event);
+});
+
+canvas.addEventListener("pointermove", draw);
+
+canvas.addEventListener("pointerup", () => {
+    drawing = false;
+});
+
+canvas.addEventListener("pointerleave", () => {
+    drawing = false;
+});
+
+function clearCanvas() {
+    drawScene();
+}
+
+
+/* =========================
+   LITTLE BIRTHDAY EFFECT
+========================= */
+
+function birthdaySparkles() {
+
+    for (let i = 0; i < 25; i++) {
+
+        const sparkle = document.createElement("div");
+
+        sparkle.textContent = "✦";
+
+        sparkle.style.position = "fixed";
+        sparkle.style.left = Math.random() * 100 + "vw";
+        sparkle.style.top = Math.random() * 100 + "vh";
+        sparkle.style.fontSize =
+            10 + Math.random() * 20 + "px";
+        sparkle.style.color = "white";
+        sparkle.style.pointerEvents = "none";
+        sparkle.style.zIndex = "999";
+
+        document.body.appendChild(sparkle);
+
+        sparkle.animate(
+            [
+                {
+                    opacity: 0,
+                    transform: "scale(.3) translateY(20px)"
+                },
+                {
+                    opacity: 1,
+                    transform: "scale(1.3)"
+                },
+                {
+                    opacity: 0,
+                    transform: "scale(.3) translateY(-30px)"
+                }
+            ],
+            {
+                duration: 1800 + Math.random() * 1200,
+                easing: "ease-out"
+            }
+        );
+
+        setTimeout(() => sparkle.remove(), 3000);
+
+    }
+
+}
+
+setTimeout(birthdaySparkles, 1200);
+
+</script>
+
+</body>
+</html>
